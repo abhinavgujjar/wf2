@@ -29,8 +29,9 @@
 		</div>
 			<div ng-repeat="hotel in hotels" ng-class="{'highlight': hotel.price >
 				10000}">
+				<img ng-src="../images/{{hotel.img}}" width="100px" />
 				<h2>{{hotel.name}}</h2>
-				<h4>{{hotel.location}}</h4>
+				<h4 ng-bind="hotel.location"></h4>
 				<hr/>
 			</div>
 	</div>

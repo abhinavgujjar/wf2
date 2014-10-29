@@ -27,15 +27,18 @@
 		{
 			name : 'Novotel',
 			location : 'Madhapur',
-			price : 15000
+			price : 15000,
+			img : 'novotel.jpg'
 		},{
 			name : 'Swagat',
 			location : 'Kondapur',
-			price : 9000
+			price : 9000,
+			img : 'swagat.jpg'
 		},{
 			name : 'Taj Krishna',
 			location : 'Banjara Hills',
-			price : 14000
+			price : 14000,
+			img : 'Krishna.jpg'
 		}];
 
 		$scope.hotels = hotels;
