@@ -1,5 +1,6 @@
 <html ng-app>
 <head>
+	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
 	<script type="text/javascript" src="angular.min.js"></script>
 	<style type="text/css">
 	.highlight {
@@ -7,7 +8,10 @@
 	}
 </style>
 </head>
-<body >
+<body class="container">
+
+
+
 	<div ng-controller="greetingController">
 		<h1 >{{message}} {{companyName}}</h1>
 		<input type="text" ng-model="message" />
@@ -27,14 +31,16 @@
 		<div>
 			<h3>Total hotels : {{hotels.length}}</h3>
 		</div>
-			<div ng-repeat="hotel in hotels" ng-class="{'highlight': hotel.price >
+			<div  ng-repeat="hotel in hotels" ng-class="{'highlight': hotel.price >
 				10000}">
-				<img ng-src="../images/{{hotel.img}}" width="100px" />
-				<h2>{{hotel.name}}</h2>
-				<h4 ng-bind="hotel.location"></h4>
-				<hr/>
+			<div class="row">
+				<img class="col-md-2 col-sm-6 col-xs-12" ng-src="../images/{{hotel.img}}" width="100px" />
+				<h2 class="col-md-2 col-sm-2 hidden-xs">{{hotel.name}}</h2>
+				<h4 class="col-md-2 col-sm-2 hidden-xs" ng-bind="hotel.location"></h4>
+			</div>
+			<hr/>
 			</div>
 	</div>
 </body>
-	<script src="app.js"></script>
+	<script type="text/javascript" src="app.js"></script>
 </html>

@@ -1,45 +1,57 @@
-	function greetingController($scope, $timeout){
+function greetingController($scope, $timeout) {
 
 
-		$scope.message = "Good Morning";
+	$scope.message = "Good Morning";
 
-		$scope.companyName = "Wells Fargo";
+	$scope.companyName = "Wells Fargo";
 
-		$timeout(function(){
-			$scope.message = "almost Great Afternoon."
-		}, 2000);
+	$timeout(function() {
+		$scope.message = "almost Great Afternoon."
+	}, 2000);
+}
+
+function hotelsController($scope) {
+	$scope.showHotels = true;
+
+	$scope.addHotel = function() {
+		var newHotel = {
+			name: $scope.name,
+			location: $scope.location,
+			price: $scope.price
+		};
+
+		hotels.push(newHotel);
 	}
 
-	function hotelsController($scope){
-		$scope.showHotels = true;
+	var hotels = [{
+		"id": "1",
+		"name": "Taj Eastend",
+		"price": 17000,
+		"location": "Race Course Road",
+		"img": "novotel.jpg",
+		"url": "http://www.theleela.com/",
+		"availableForBook": false,
+		"description": "Incoherently newt hound ",
+		"area": 40000
+	}, {
+		"id": "2",
+		"name": "Keys Hotel",
+		"price": 8000,
+		"location": "Whitefield",
+		"img": "swagat.jpg",
+		"availableForBook": true,
+		"description": "Artful goodness as depending naively suitably disagreeably more krill alongside wherever a far krill fled irrespective the the began thus desolate that more madly that less that off the dauntlessly this avowed far bravely beside where yikes and drew or opossum shut jeepers doused bowed jeepers impious this loaded deftly walked until that and porpoise tortoise while busted tunefully spread dear one unlocked that assisted much excepting cordially that crud.",
+		"area": 20000
+	}, {
+		"id": "3",
+		"name": "Leela Palace",
+		"price": 20000,
+		"location": "Old Airport Road",
+		"img": "Krishna.jpg",
+		"availableForBook": true,
+		"description": "Visually far vivacious one this swore and wow that opposite more and goldfish coward besides much labrador bashfully one well rang after a and darn wow far browbeat playfully excited less more when rash well radically wildebeest one well a hypnotically vehemently stupid so.",
+		"area": 65000
+	}]
 
-		$scope.addHotel = function(){
-			var newHotel = { 
-				name: $scope.name, 
-				location: $scope.location, 
-				price: $scope.price
-			};
-
-			hotels.push(newHotel);
-		}
-
-		var hotels = [
-		{
-			name : 'Novotel',
-			location : 'Madhapur',
-			price : 15000,
-			img : 'novotel.jpg'
-		},{
-			name : 'Swagat',
-			location : 'Kondapur',
-			price : 9000,
-			img : 'swagat.jpg'
-		},{
-			name : 'Taj Krishna',
-			location : 'Banjara Hills',
-			price : 14000,
-			img : 'Krishna.jpg'
-		}];
-
-		$scope.hotels = hotels;
-	}
+	$scope.hotels = hotels;
+}
