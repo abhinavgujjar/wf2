@@ -1,7 +1,7 @@
 <html ng-app>
 <head>
 	<script type="text/javascript" src="angular.min.js"></script>
-<style type="text/css">
+	<style type="text/css">
 	.highlight {
 		color: red;
 	}
@@ -9,54 +9,31 @@
 </head>
 <body >
 	<div ng-controller="greetingController">
-		<h1 >{{message}} {{companyName}}</h1>	
+		<h1 >{{message}} {{companyName}}</h1>
 		<input type="text" ng-model="message" />
 	</div>
-		<hr/>
-		<hr/>
+	<hr/>
+	<hr/>
 	<div ng-controller="hotelsController">
 
-		<input type="text" ng-model="showHotels" />Show hotels
-		<input type="checkbox" ng-model="showHotels" />Show hotels
-		<div ng-show="showHotels" ng-repeat="hotel in hotels">
-			<div ng-class="{'highlight': hotel.price > 10000}">
+		<input type="checkbox" ng-model="showHotels" />
+		Show hotels
+		<div>
+			<input type="text" ng-model="name" placeholder="name" />
+			<input type="text" ng-model="location" placeholder="location" />
+			<input type="text" ng-model="price" placeholder="price" />
+			<button ng-click="addHotel()">Add</button>
+		</div>
+		<div>
+			<h3>Total hotels : {{hotels.length}}</h3>
+		</div>
+			<div ng-repeat="hotel in hotels" ng-class="{'highlight': hotel.price >
+				10000}">
 				<h2>{{hotel.name}}</h2>
 				<h4>{{hotel.location}}</h4>
+				<hr/>
 			</div>
-			<hr/>
-		</div>
 	</div>
 </body>
-<script>
-	function greetingController($scope, $timeout){
-
-
-		$scope.message = "Good Morning";
-
-		$scope.companyName = "Wells Fargo";
-
-		$timeout(function(){
-			$scope.message = "almost Great Afternoon."
-		}, 2000);
-	}
-
-	function hotelsController($scope){
-		var hotels = [
-		{
-			name : 'Novotel',
-			location : 'Madhapur',
-			price : 15000
-		},{
-			name : 'Swagat',
-			location : 'Kondapur',
-			price : 9000
-		},{
-			name : 'Taj Krishna',
-			location : 'Banjara Hills',
-			price : 14000
-		}];
-
-		$scope.hotels = hotels;
-	}
-</script>
+	<script src="app.js"></script>
 </html>
