@@ -10,36 +10,56 @@
 </head>
 <body class="container">
 
-
-
 	<div ng-controller="greetingController">
 		<h1 >{{message}} {{companyName}}</h1>
 		<input type="text" ng-model="message" />
 	</div>
 	<hr/>
-	<hr/>
 	<div ng-controller="hotelsController">
 
 		<input type="checkbox" ng-model="showHotels" />
 		Show hotels
-		<div>
-			<input type="text" ng-model="name" placeholder="name" />
-			<input type="text" ng-model="location" placeholder="location" />
-			<input type="text" ng-model="price" placeholder="price" />
-			<button ng-click="addHotel()">Add</button>
+		<div class="row">
+			<div class="col-md-8">
+				<input type="text" ng-model="newHotel.name" placeholder="name" />
+				<input type="text" ng-model="newHotel.location" placeholder="location" />
+				<input type="text" ng-model="newHotel.price" placeholder="price" />
+				<button ng-click="addHotel()">Add</button>
+			</div>
+			<div class="col-md-2">{{newHotel | json}}</div>
+
 		</div>
+		<hr/>
+
 		<div>
-			<h3>Total hotels : {{hotels.length}}</h3>
+			<div class="col-md-3"><input ng-model="searchTerm" class="form-control" type="text" placeholder="enter search term" /></div>
+			<div class="col-md-3"><input ng-model="orderTerm" class="form-control" type="text" placeholder="enter order by term" /></div>
+			<h4 class="col-md-6">Total hotels : {{hotels.length}}</h4>
 		</div>
-			<div  ng-repeat="hotel in hotels" ng-class="{'highlight': hotel.price >
-				10000}">
+		<br/>
+		<br/>
+		<br/>
+		<div  ng-repeat="hotel in hotels | filter: searchTerm | orderBy : orderTerm" >
 			<div class="row">
 				<img class="col-md-2 col-sm-6 col-xs-12" ng-src="../images/{{hotel.img}}" width="100px" />
-				<h2 class="col-md-2 col-sm-2 hidden-xs">{{hotel.name}}</h2>
-				<h4 class="col-md-2 col-sm-2 hidden-xs" ng-bind="hotel.location"></h4>
+				<div class="col-md-10">
+					<div class="row">
+						<div class="col-md-4 h2">{{hotel.name | uppercase}}</div>
+						<div class="col-md-2 h2">{{hotel.price | currency : 'INR'}}</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">{{hotel.description}}</div>
+					</div>
+					<br/>
+					<div class="row">
+						<div class="col-md-8">{{hotel.location}}</div>
+						<div class="col-md-4">{{hotel.area | number : 2}}</div>
+					</div>
+				</div>
+
 			</div>
 			<hr/>
-			</div>
+		</div>
 	</div>
 </body>
 	<script type="text/javascript" src="app.js"></script>

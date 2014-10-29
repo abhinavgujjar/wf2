@@ -14,13 +14,9 @@ function hotelsController($scope) {
 	$scope.showHotels = true;
 
 	$scope.addHotel = function() {
-		var newHotel = {
-			name: $scope.name,
-			location: $scope.location,
-			price: $scope.price
-		};
+		
 
-		hotels.push(newHotel);
+		hotels.push($scope.newHotel);
 	}
 
 	var hotels = [{
