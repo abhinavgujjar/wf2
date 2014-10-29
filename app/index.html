@@ -1,43 +1,62 @@
 <html ng-app>
 <head>
 	<script type="text/javascript" src="angular.min.js"></script>
+<style type="text/css">
+	.highlight {
+		color: red;
+	}
+</style>
 </head>
-<body ng-controller="mainController">
-	<h1 >Hi Wells Fargo</h1>
-
-	<input type="checkbox" ng-checked="showMessage" />
-
-
-	<h1 ng-show="showMessage">{{7+5}}</h1>
-	<h1 ng-show="showMessage">{{message}}</h1>
-	<div ng-controller="nestedController">
-		<h1 style="color:red">{{message}}, {{companyName}}</h1>
+<body >
+	<div ng-controller="greetingController">
+		<h1 >{{message}} {{companyName}}</h1>	
+		<input type="text" ng-model="message" />
 	</div>
-	<h1 ng-bind="message"></h1>
+		<hr/>
+		<hr/>
+	<div ng-controller="hotelsController">
 
-	<input type="text" ng-value="message" />
-
-
+		<input type="text" ng-model="showHotels" />Show hotels
+		<input type="checkbox" ng-model="showHotels" />Show hotels
+		<div ng-show="showHotels" ng-repeat="hotel in hotels">
+			<div ng-class="{'highlight': hotel.price > 10000}">
+				<h2>{{hotel.name}}</h2>
+				<h4>{{hotel.location}}</h4>
+			</div>
+			<hr/>
+		</div>
+	</div>
 </body>
 <script>
-	function mainController($scope, $rootScope){
+	function greetingController($scope, $timeout){
 
-		$scope.showMessage = false;
-		var salutation = "Sir";
 
-		var timeOfDay = "Morning";
+		$scope.message = "Good Morning";
 
-		var goodOrNot = true;
+		$scope.companyName = "Wells Fargo";
 
-		var message = "Good" + " " + timeOfDay + ", " + salutation;
-
-		$scope.message = message;
-
-		$rootScope.companyName = "Wells Fargo";
+		$timeout(function(){
+			$scope.message = "almost Great Afternoon."
+		}, 2000);
 	}
 
-	function nestedController($scope){
-		$scope.message = "Warm Morning!";
+	function hotelsController($scope){
+		var hotels = [
+		{
+			name : 'Novotel',
+			location : 'Madhapur',
+			price : 15000
+		},{
+			name : 'Swagat',
+			location : 'Kondapur',
+			price : 9000
+		},{
+			name : 'Taj Krishna',
+			location : 'Banjara Hills',
+			price : 14000
+		}];
+
+		$scope.hotels = hotels;
 	}
 </script>
 </html>
