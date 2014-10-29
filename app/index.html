@@ -2,8 +2,42 @@
 <head>
 	<script type="text/javascript" src="angular.min.js"></script>
 </head>
-<body >
+<body ng-controller="mainController">
 	<h1 >Hi Wells Fargo</h1>
-	<h1>{{7+5}}</h1>
+
+	<input type="checkbox" ng-checked="showMessage" />
+
+
+	<h1 ng-show="showMessage">{{7+5}}</h1>
+	<h1 ng-show="showMessage">{{message}}</h1>
+	<div ng-controller="nestedController">
+		<h1 style="color:red">{{message}}, {{companyName}}</h1>
+	</div>
+	<h1 ng-bind="message"></h1>
+
+	<input type="text" ng-value="message" />
+
+
 </body>
+<script>
+	function mainController($scope, $rootScope){
+
+		$scope.showMessage = false;
+		var salutation = "Sir";
+
+		var timeOfDay = "Morning";
+
+		var goodOrNot = true;
+
+		var message = "Good" + " " + timeOfDay + ", " + salutation;
+
+		$scope.message = message;
+
+		$rootScope.companyName = "Wells Fargo";
+	}
+
+	function nestedController($scope){
+		$scope.message = "Warm Morning!";
+	}
+</script>
 </html>
