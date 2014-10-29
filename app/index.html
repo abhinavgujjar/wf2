@@ -56,9 +56,9 @@
 					<div class="row">
 						<div class="col-md-12">
 
-						<span ng-show="!hotel.showMore">{{hotel.description | limitTo : 150}}</span>
+						<span ng-show="!hotel.showMore">{{hotel.description | limitTo : descLimit}}</span>
 						<span ng-show="hotel.showMore">{{hotel.description}}</span>
-							<span ng-show="hotel.description.length > 150 && !hotel.showMore"><a href="" ng-click="showMore(hotel)">...</a></span>
+							<span ng-show="hotel.description.length > descLimit && !hotel.showMore"><a href="" ng-click="showMore(hotel)">...</a></span>
 						</div>
 					</div>
 					<br/>
@@ -76,4 +76,5 @@
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="js/hotelsController.js"></script>
 	<script type="text/javascript" src="js/greetingController.js"></script>
+	<script type="text/javascript" src="js/hotelsDataService.js"></script>
 </html>

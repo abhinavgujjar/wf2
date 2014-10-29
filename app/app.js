@@ -8,3 +8,7 @@ angular.module('travelocity').filter('toFeet', function(){
 	}
 })
 
+
+angular.module('travelocity').value('descLimit', 300);
+
+angular.module('travelocity').value('companyName', 'Wells Fargo 2.0');
