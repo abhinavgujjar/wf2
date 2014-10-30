@@ -5,6 +5,13 @@ angular.module('travelocity').controller('addController',
 
 		};
 
+		$scope.setStep = function(stepNumber)
+		{
+			$scope.step = stepNumber; 
+		}
+
+		$scope.step = 1;
+
 		$scope.addHotel = function() {
 
 			if ($scope.hotelsForm.$invalid) {
