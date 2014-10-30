@@ -1,13 +1,20 @@
 angular.module('travelocity').controller('addController',
 	function($scope, dataService, $location) {
 
-		$scope.someHotel = {
 
+		$scope.someHotel = {
+			amenities : []
 		};
 
 		$scope.setStep = function(stepNumber)
 		{
 			$scope.step = stepNumber; 
+		}
+
+		$scope.addAmenity = function(amenity){
+			$scope.someHotel.amenities.push({ name: amenity});
+
+			$scope.newAmenity = '';
 		}
 
 		$scope.step = 1;
