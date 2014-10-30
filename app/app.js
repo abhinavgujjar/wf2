@@ -1,6 +1,19 @@
 
 //declared!! []
-angular.module('travelocity', []);
+angular.module('travelocity', ['ngRoute']);
+
+angular.module('travelocity').config(function($routeProvider){
+
+
+	$routeProvider.when('/home', {
+		templateUrl : 'partials/home.html'
+	});
+
+	$routeProvider.when('/listing', {
+		templateUrl : 'partials/listing.html'
+	});
+
+})
 
 angular.module('travelocity').filter('toFeet', function(){
 	return function(input){

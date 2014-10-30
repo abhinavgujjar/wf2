@@ -1,7 +1,8 @@
 <html ng-app='travelocity'>
 <head>
 	<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
-	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="../bower_components/angular/angular.min.js"></script>
+	<script type="text/javascript" src="../bower_components/angular-route/angular-route.min.js"></script>
 	<style type="text/css">
 	.highlight {
 		color: red;
@@ -15,66 +16,14 @@
 		<input type="text" ng-model="message" />
 	</div>
 	<hr/>
-	<div ng-controller="hotelsController">
-
-		<input type="checkbox" ng-model="showHotels" />
-		Show hotels
-		<div class="row">
-			<div class="col-md-8">
-				<input type="text" ng-model="newHotel.name" placeholder="name" />
-				<input type="text" ng-model="newHotel.location" placeholder="location" />
-				<input type="text" ng-model="newHotel.price" placeholder="price" />
-				<button ng-click="addHotel()">Add</button>
-			</div>
-			<div class="col-md-2">{{newHotel | json}}</div>
-
-		</div>
-		<hr/>
-
-		<div>
-			<div class="col-md-3"><input ng-model="searchTerm" class="form-control" type="text" placeholder="enter search term" /></div>
-			<div class="col-md-3"><input ng-model="orderTerm" class="form-control" type="text" placeholder="enter order by term" /></div>
-			<h4 class="col-md-6">Total hotels : {{hotels.length}}</h4>
-		</div>
-		<br/>
-		<br/>
-		<br/>
-		<div  ng-repeat="hotel in hotels | filter: searchTerm | orderBy : orderTerm" >
-			<div class="row well">
-				<div class="col-md-1">
-					<div><button class="btn btn-success" ng-click="upvote(hotel)"><span class="glyphicon glyphicon-chevron-up"></span></button></div>
-					<div><h3>{{hotel.rating || 0}}</h3></div>
-					<div><button class="btn btn-danger" ng-click="downvote(hotel)"><span class="glyphicon glyphicon-chevron-down"></span></button></div>
-				</div>
-				<img class="col-md-2 col-sm-6 col-xs-12" ng-src="../images/{{hotel.img}}" width="100px" />
-				<div class="col-md-9">
-					<div class="row">
-						<div class="col-md-4 h2">{{hotel.name | uppercase}}</div>
-						<div class="col-md-4 h2">{{hotel.price | currency : 'INR'}}</div>
-						
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-
-						<span ng-show="!hotel.showMore">{{hotel.description | limitTo : descLimit}}</span>
-						<span ng-show="hotel.showMore">{{hotel.description}}</span>
-							<span ng-show="hotel.description.length > descLimit && !hotel.showMore"><a href="" ng-click="showMore(hotel)">...</a></span>
-						</div>
-					</div>
-					<br/>
-					<div class="row">
-						<div class="col-md-8">{{hotel.location}}</div>
-						<div class="col-md-4">{{hotel.area | toFeet | number : 2}}</div>
-					</div>
-				</div>
-
-			</div>
-		
-		</div>
-	</div>
+	
+	<br/>
+		<ng-view></ng-view>
+	<br/>
 </body>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="js/hotelsController.js"></script>
 	<script type="text/javascript" src="js/greetingController.js"></script>
 	<script type="text/javascript" src="js/hotelsDataService.js"></script>
+	<script type="text/javascript" src="js/votingService.js"></script>
 </html>
