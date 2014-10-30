@@ -2,6 +2,7 @@ angular.module('travelocity').factory('dataService',
 
 	function($http) {
 
+		//http://plnkr.co/edit/FM5dlQ?p=preview
 
 		var dataService = {
 			getHotels: function(callback) {
