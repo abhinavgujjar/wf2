@@ -2,6 +2,12 @@
 //declared!! []
 angular.module('travelocity', ['ngRoute']);
 
+angular.module('travelocity').controller('navController',
+	function($scope) {
+
+		$scope.append = "?token=ABC";
+	});
+
 angular.module('travelocity').config(function($routeProvider){
 
 

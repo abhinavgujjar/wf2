@@ -17,8 +17,11 @@ angular.module('travelocity').controller('hotelsController',
 		votingService.downVote(hotel);
 	}
 
+	function assignHotels(data){
+		$scope.hotels = data;	
+	}
 	
-	var hotels = dataService.getHotels();
+	dataService.getHotels(assignHotels);
 
-	$scope.hotels = hotels;
+	
 });

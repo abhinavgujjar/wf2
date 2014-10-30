@@ -41,17 +41,17 @@
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid" ng-controller="navController">
 		<div class="col-md-1">
 			<ul class="nav nav-pills nav-stacked" role="tablist">
 				<li role="presentation" >
-					<a href="#/home">Home</a>
+					<a href="#/home{{append}}">Home</a>
 				</li>
 				<li role="presentation">
-					<a href="#/listing">Listing</a>
+					<a href="#/listing{{append}}">Listing</a>
 				</li>
 				<li role="presentation">
-					<a href="#/add">New</a>
+					<a href="#/add{{append}}">New</a>
 				</li>
 			</ul>
 		</div>
@@ -73,4 +73,5 @@
 	<script type="text/javascript" src="js/hotelsDataService.js"></script>
 	<script type="text/javascript" src="js/votingService.js"></script>
 	<script type="text/javascript" src="js/addController.js"></script>
+	<script type="text/javascript" src="js/amenitiesController.js"></script>
 </html>
