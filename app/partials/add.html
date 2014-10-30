@@ -1,9 +1,64 @@
+<style type="text/css">
+  input.ng-dirty.ng-valid{
+    border-color: green;
+    border-width: 2px;
+  }
+
+  input.ng-dirty.ng-invalid{
+    background-color: pink;
+  }
+
+  input.ng-pristine.ng-invalid{
+    border-color: pink;
+    border-width: 1px;
+  }
+
+</style>
 <div class="row">
-	<div class="col-md-8">
-		<input type="text" ng-model="newHotel.name" placeholder="name" />
-		<input type="text" ng-model="newHotel.location" placeholder="location" />
-		<input type="text" ng-model="newHotel.price" placeholder="price" />
-		<button ng-click="addHotel()">Add</button>
-	</div>
-	<div class="col-md-2">{{newHotel | json}}</div>
+	<div class="col-md-7">
+	<form class="form-horizontal" role="form" name="hotelsForm">
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-9">
+      <input type="text" ng-model="someHotel.name" name="vName" required max-length="10" class="form-control" placeholder="Name">
+    </div>
+    <div class="col-sm-1">
+    <span class="glyphicon glyphicon-ok" ng-show="hotelsForm.vName.$valid"></span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Location</label>
+    <div class="col-sm-9">
+      <input type="text" ng-disabled="hotelsForm.vPrice.$invalid" ng-model="someHotel.location" max-length="20" name="vLocation" ng-pattern="/^Banjara|Jubilee$/"  class="form-control" placeholder="Location">
+    </div>
+    <div class="col-sm-1">
+    <span class="glyphicon glyphicon-ok" ng-show="hotelsForm.vLocation.$valid"></span>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" min="2000" max="50000" name="vPrice" required ng-model="someHotel.price"  class="form-control" placeholder="Price">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-10">
+      <textarea ng-model="someHotel.description" class="form-control" rows="7"></textarea>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" ng-click="addHotel()" class="btn btn-default">Add</button>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-5">
+  	{{someHotel | json}}
+  </div>
+</form>
+
 </div>

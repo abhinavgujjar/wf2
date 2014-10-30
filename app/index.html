@@ -9,16 +9,63 @@
 	}
 </style>
 </head>
-<body class="container">
+<body >
 
-	<div ng-controller="greetingController">
-		<h1 >{{message}} {{companyName}}</h1>
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#/home">Travelocity</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li >
+						<a href="#/add">New</a>
+					</li>
+					<li>
+						<a href="#/listing">Listing</a>
+					</li>
+
+				</ul>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<div class="container-fluid">
+		<div class="col-md-1">
+			<ul class="nav nav-pills nav-stacked" role="tablist">
+				<li role="presentation" >
+					<a href="#/home">Home</a>
+				</li>
+				<li role="presentation">
+					<a href="#/listing">Listing</a>
+				</li>
+				<li role="presentation">
+					<a href="#/add">New</a>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-11">
+			<div ng-controller="greetingController">
+				<h1 >{{message}} {{companyName}}</h1>
+			</div>
+			<hr/>
+
+			<br/>
+			<ng-view></ng-view>
+			<br/>
+		</div>
 	</div>
-	<hr/>
-	
-	<br/>
-		<ng-view></ng-view>
-	<br/>
 </body>
 	<script type="text/javascript" src="app.js"></script>
 	<script type="text/javascript" src="js/hotelsController.js"></script>
