@@ -1,23 +1,12 @@
 <div ng-controller="hotelsController">
 
-		<input type="checkbox" ng-model="showHotels" />
-		Show hotels
-		<div class="row">
-			<div class="col-md-8">
-				<input type="text" ng-model="newHotel.name" placeholder="name" />
-				<input type="text" ng-model="newHotel.location" placeholder="location" />
-				<input type="text" ng-model="newHotel.price" placeholder="price" />
-				<button ng-click="addHotel()">Add</button>
-			</div>
-			<div class="col-md-2">{{newHotel | json}}</div>
-
-		</div>
-		<hr/>
-
 		<div>
 			<div class="col-md-3"><input ng-model="searchTerm" class="form-control" type="text" placeholder="enter search term" /></div>
 			<div class="col-md-3"><input ng-model="orderTerm" class="form-control" type="text" placeholder="enter order by term" /></div>
-			<h4 class="col-md-6">Total hotels : {{hotels.length}}</h4>
+			<h4 class="col-md-4">Total hotels : {{hotels.length}}</h4>
+			<div class="col-md-2">
+				<a href="#/add" class="btn btn-primary">New Hotel</a>
+			</div>
 		</div>
 		<br/>
 		<br/>

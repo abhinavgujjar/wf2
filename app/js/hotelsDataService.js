@@ -42,10 +42,18 @@ angular.module('travelocity').factory('dataService',
 		"area": 65000
 	}];
 
-	return {
+	var dataService = {
 		getHotels:  function(){
 			return hotels;
+		},
+		addHotel : function(hotel){
+			hotels.push(hotel);
 		}
 
 	}
-})
+
+	return dataService;
+}
+
+
+)

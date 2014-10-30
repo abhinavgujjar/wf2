@@ -17,12 +17,7 @@ angular.module('travelocity').controller('hotelsController',
 		votingService.downVote(hotel);
 	}
 
-	$scope.addHotel = function() {
-		
-
-		hotels.push($scope.newHotel);
-	}
-
+	
 	var hotels = dataService.getHotels();
 
 	$scope.hotels = hotels;

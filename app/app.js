@@ -13,6 +13,11 @@ angular.module('travelocity').config(function($routeProvider){
 		templateUrl : 'partials/listing.html'
 	});
 
+	$routeProvider.when('/add', {
+		templateUrl : 'partials/add.html',
+		controller : 'addController'
+	});
+
 })
 
 angular.module('travelocity').filter('toFeet', function(){

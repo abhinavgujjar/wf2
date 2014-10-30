@@ -1,0 +1,9 @@
+<div class="row">
+	<div class="col-md-8">
+		<input type="text" ng-model="newHotel.name" placeholder="name" />
+		<input type="text" ng-model="newHotel.location" placeholder="location" />
+		<input type="text" ng-model="newHotel.price" placeholder="price" />
+		<button ng-click="addHotel()">Add</button>
+	</div>
+	<div class="col-md-2">{{newHotel | json}}</div>
+</div>
