@@ -43,10 +43,20 @@
           <div class="form-group">
             <label class="col-sm-2 control-label">Location</label>
             <div class="col-sm-9">
-              <input type="text" ng-disabled="hotelsForm.vPrice.$invalid" ng-model="someHotel.location" max-length="20" name="vLocation" ng-pattern="/^Banjara|Jubilee$/"  class="form-control" placeholder="Location"></div>
-            <div class="col-sm-1">
-              <span class="glyphicon glyphicon-ok" ng-show="hotelsForm.vLocation.$valid"></span>
+              <div class="col-md-6">
+                <select ng-model="selectedCity"  class="form-control">
+                  <option value="BLR">Bangalore</option>
+                  <option value="HYD">Hyderabad</option>
+                </select>
+              </div>
+              <div class="col-md-6">
+                <select ng-model="someHotel.location" class="form-control">
+                  <option ng-value="location" ng-repeat="location in locations">{{location}}</option>
+                </select>
+              </div>
             </div>
+
+
           </div>
 
           <div class="form-group">
