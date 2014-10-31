@@ -1,59 +1,90 @@
 
-//declared!! []
-angular.module('travelocity', ['ngRoute']);
 
-angular.module('travelocity').controller('navController',
-	function($scope) {
+(function() {
+	var app = angular.module('travelocity', ['ngRoute', 'ngSanitize']);
 
-		$scope.append = "?token=ABC";
-	});
+	app.controller('navController',
+		function($scope) {
 
-angular.module('travelocity').config(function($routeProvider){
+			$scope.append = "?token=ABC";
+		});
 
-
-	$routeProvider.when('/home', {
-		templateUrl : 'partials/home.html'
-	});
-
-	$routeProvider.when('/listing', {
-		templateUrl : 'partials/listing.html',
-		controller : 'hotelsController'
-	});
+	app.config(function($routeProvider) {
 
 
-	$routeProvider.when('/listingtable', {
-		templateUrl : 'partials/listingtable.html',
-		controller : 'hotelsController'
-	});
+		$routeProvider.when('/home', {
+			templateUrl: 'partials/home.html'
+		});
 
-	$routeProvider.when('/details/:hotelId', {
-		templateUrl : 'partials/details.html',
-		controller : 'detailsController'
-	});
-
-	$routeProvider.when('/add', {
-		templateUrl : 'partials/add.html',
-		controller : 'addController'
-	});
-
-})
-
-angular.module('travelocity').filter('toFeet', function(){
-	return function(input){
-		return input * 0.092903;
-	}
-})
+		$routeProvider.when('/listing', {
+			templateUrl: 'partials/listing.html',
+			controller: 'hotelsController'
+		});
 
 
-angular.module('travelocity').filter('paginate', function(){
-	return function(hotels, page){
-		var output = hotels.slice(page, page + 5);
+		$routeProvider.when('/listingtable', {
+			templateUrl: 'partials/listingtable.html',
+			controller: 'hotelsController'
+		});
 
-		return output;
-	}
-})
+		$routeProvider.when('/details/:hotelId', {
+			templateUrl: 'partials/details.html',
+			controller: 'detailsController'
+		});
+
+		$routeProvider.when('/add', {
+			templateUrl: 'partials/add.html',
+			controller: 'addController'
+		});
+
+	})
+
+	app.filter('toFeet', function() {
+		return function(input) {
+			return input * 0.092903;
+		}
+	})
 
 
-angular.module('travelocity').value('descLimit', 300);
+	app.filter('paginate', function() {
+		return function(hotels, page) {
+			var output = hotels.slice(page, page + 5);
 
-angular.module('travelocity').value('companyName', 'Wells Fargo 2.0');
+			return output;
+		}
+	})
+
+
+	app.value('descLimit', 300);
+
+		app.value('baseUrl', 'https://api.parse.com/1/classes/');
+
+	app.value('companyName', 'Wells Fargo 2.0');
+
+
+	app.directive('preview', function() {
+		return {
+			restrict: 'E', //E : Element, A: Attribute, C: Class , M:comment
+			templateUrl: 'partials/preview.html',
+			scope: {
+				desc: '=',
+				rows : '@'
+			}
+		}
+	})
+
+	app.directive('zoom', function() {
+		return {
+			restrict: 'A',
+			link : function(scope, element, attrs, controller){
+				element.on('mouseenter', function(e) {
+				
+					element.css({
+						color: "red"
+					});
+				
+			})
+			}
+		}
+	})
+})();
