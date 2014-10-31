@@ -22,7 +22,7 @@
 					<div><button class="btn btn-danger" ng-click="downvote(hotel)"><span class="glyphicon glyphicon-chevron-down"></span></button></div>
 				</div>
 				<img class="col-md-2 col-sm-6 col-xs-12" ng-src="../images/{{hotel.img}}" width="100px" />
-				<div class="col-md-9">
+				<div class="col-md-6">
 					<div class="row">
 						<div class="col-md-4 h2"><a href="#/details/{{hotel.objectId}}" ng-click="selectHotel(hotel)">{{hotel.name | uppercase}}</a></div>
 						<div class="col-md-4 h2">{{hotel.price | currency : 'INR'}}</div>
@@ -41,6 +41,9 @@
 						<div class="col-md-8">{{hotel.location}}</div>
 						<div class="col-md-4">{{hotel.area | toFeet | number : 2}}</div>
 					</div>
+				</div>
+				<div class="col-md-3">
+					<amenities hotel="hotel" editable="false"></amenities>
 				</div>
 
 			</div>

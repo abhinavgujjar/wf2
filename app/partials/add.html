@@ -97,28 +97,8 @@
     </ng-form>
   </div>
 
-  <div class="col-md-5" ng-controller="amenitiesController">
-    <div class="list-group">
-      <ul>
-        <li class="list-group-item" ng-repeat="am in someHotel.amenities">
-            <span ng-show="!editMode">{{am.name}}</span>
-            <input ng-show="editMode" type="text" ng-model="am.name" />
-            <button ng-show="!editMode" class="btn btn-sm btn-warning" ng-click="editMode = true">
-              <span>edit</span>
-            </button>
-           <button ng-show="editMode" class="btn btn-sm btn-success" ng-click="editMode = false">
-              <span>save</span>
-            </button>
-          
-        </li>
-        <li class="list-group-item">
-          <input type="text" ng-model="newAmenity" />
-          <button class="btn btn-sm btn-success" ng-click="addAmenity(newAmenity)">Add</button>
-
-        </li>
-      </ul>
-    </div>
-
+  <div class="col-md-5">
+    <amenities hotel="someHotel" editable="true"></amenities>
   </div>
 
 </div>
