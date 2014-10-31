@@ -1,0 +1,34 @@
+<div >
+
+	<div>
+		<div class="col-md-3">
+			<input ng-model="searchTerm" class="form-control" type="text" placeholder="enter search term" />
+		</div>
+		<div class="col-md-3">
+			<input ng-model="orderTerm" class="form-control" type="text" placeholder="enter order by term" />
+		</div>
+		<h4 class="col-md-4">Total hotels : {{hotels.length}}</h4>
+		<div class="col-md-2">
+			<a href="#/add" class="btn btn-primary">New Hotel</a>
+		</div>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+
+	<table class="table">
+		<tr ng-repeat="hotel in hotels | filter: searchTerm | orderBy : orderTerm" >
+			<td>
+				<a href="" ng-click="showDetails.id = hotel.objectId">
+				<div class="row">
+					<div class="col-md-6">{{hotel.name}}</div>
+					<div class="col-md-6">{{hotel.price}}</div>
+				</div>
+				</a>
+				<div ng-show="showDetails.id == hotel.objectId" class="row">
+					{{hotel.description}}
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>

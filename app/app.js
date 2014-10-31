@@ -16,7 +16,14 @@ angular.module('travelocity').config(function($routeProvider){
 	});
 
 	$routeProvider.when('/listing', {
-		templateUrl : 'partials/listing.html'
+		templateUrl : 'partials/listing.html',
+		controller : 'hotelsController'
+	});
+
+
+	$routeProvider.when('/listingtable', {
+		templateUrl : 'partials/listingtable.html',
+		controller : 'hotelsController'
 	});
 
 	$routeProvider.when('/details/:hotelId', {
