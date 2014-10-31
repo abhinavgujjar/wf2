@@ -1,5 +1,5 @@
 angular.module('travelocity').controller('hotelsController',
-	function($scope, descLimit, dataService, votingService, $http) {
+	function($scope, descLimit, dataService, votingService, $http, $location) {
 		$scope.showHotels = true;
 
 		$scope.descLimit = descLimit;
@@ -14,6 +14,12 @@ angular.module('travelocity').controller('hotelsController',
 
 		$scope.downvote = function(hotel) {
 			votingService.downVote(hotel);
+		}
+
+		$scope.selectHotel = function(hotel){
+			dataService.selectedHotel = hotel;
+
+			$location.url('/details');
 		}
 
 
