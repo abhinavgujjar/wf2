@@ -38,12 +38,16 @@ angular.module('travelocity').factory('dataService',
 					}
 				})
 
+			},
+			getHotel: function(id) {
+				return $http.get('https://api.parse.com/1/classes/travotels/' + id,  {
+					headers: {
+						'X-Parse-Application-Id': 'tMe8XtUeuW8mqCEO5ah01hxQBLvNQVKdFiLAaCI8',
+						'X-Parse-REST-API-Key': 'W90z7anSKkX7PbHfviOfDcT3BZr6E2BHVY3ehN9l',
+					}
+				});
 			}
-
 		}
-
 		return dataService;
 	}
-
-
-)
+);
