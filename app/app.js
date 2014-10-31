@@ -19,7 +19,7 @@ angular.module('travelocity').config(function($routeProvider){
 		templateUrl : 'partials/listing.html'
 	});
 
-	$routeProvider.when('/details', {
+	$routeProvider.when('/details/:hotelId', {
 		templateUrl : 'partials/details.html',
 		controller : 'detailsController'
 	});
