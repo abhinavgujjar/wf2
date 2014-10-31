@@ -45,6 +45,15 @@ angular.module('travelocity').filter('toFeet', function(){
 })
 
 
+angular.module('travelocity').filter('paginate', function(){
+	return function(hotels, page){
+		var output = hotels.slice(page, page + 5);
+
+		return output;
+	}
+})
+
+
 angular.module('travelocity').value('descLimit', 300);
 
 angular.module('travelocity').value('companyName', 'Wells Fargo 2.0');

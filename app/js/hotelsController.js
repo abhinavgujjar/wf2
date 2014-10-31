@@ -4,6 +4,12 @@ angular.module('travelocity').controller('hotelsController',
 
 		$scope.descLimit = descLimit;
 
+		$scope.page = 0;
+
+		$scope.selectedHotels = {
+			
+		}
+
 		$scope.showDetails = {
 			id : 0
 		};

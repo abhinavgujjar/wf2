@@ -16,17 +16,35 @@
 	<br/>
 	<br/>
 
+	<nav>
+		<h3>{{selectedHotels | json}}</h3>
+		<ul class="pager">
+			<li class="previous">
+				<a href=""  ng-click="page = page - 1">&larr; Prev</a>
+			</li>
+			<li class="next">
+				<a href="" ng-click="page = page + 1 ">Next &rarr;</a>
+			</li>
+		</ul>
+	</nav>
+
 	<table class="table">
-		<tr ng-repeat="hotel in hotels | filter: searchTerm | orderBy : orderTerm" >
+		<tr ng-repeat="hotel in hotels | paginate : page | filter: searchTerm | orderBy : orderTerm | limitTo : 5" >
 			<td>
-				<a href="" ng-click="showDetails.id = hotel.objectId">
+
 				<div class="row">
-					<div class="col-md-6">{{hotel.name}}</div>
-					<div class="col-md-6">{{hotel.price}}</div>
+					<div class="col-md-1">
+						<input type="checkbox" ng-model="selectedHotels[hotel.objectId]" class="form-control"/>
+					</div>
+					<a href="" ng-click="showDetails.id = hotel.objectId">
+						<div class="col-md-5">{{hotel.name}}</div>
+						<div class="col-md-6">{{hotel.price}}</div>
+					</a>
 				</div>
-				</a>
-				<div ng-show="showDetails.id == hotel.objectId" class="row">
-					{{hotel.description}}
+
+				<br/>
+				<div ng-show="showDetails.id == hotel.objectId" class="row text-muted well">
+					<div class="col-md-12">{{hotel.description}}</div>
 				</div>
 			</td>
 		</tr>
